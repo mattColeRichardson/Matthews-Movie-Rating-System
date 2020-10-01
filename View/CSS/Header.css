@@ -1,0 +1,24 @@
+header
+{
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    height: 10%;
+    background-color: lightgray;
+}
+#LogoImg
+{
+    height: 8vh;
+    padding: .5vh;
+}
+#HeaderSpacer
+{
+    font-family: Calibri, serif;
+    font-size: 4vw;
+    place-self: center;
+
+}
+#AccountImg
+{
+    height: 8vh;
+    padding: .5vh;
+}

@@ -1,0 +1,17 @@
+.ResultArea
+{
+    display: grid;
+    grid-template-rows: 3fr 3fr 3fr;
+    grid-template-columns: 3fr 3fr 3fr;
+}
+.Result
+{
+    margin: .5vw;
+    text-align: center;
+    border-radius: .5vw;
+    background-color: cadetblue;
+}
+.ResultImg
+{
+    width: 100%;
+}
