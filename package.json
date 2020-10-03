@@ -1,12 +1,15 @@
 {
-  "name": "MovieRatingSystem",
+  "name": "movieratingsystem",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a project to keep track of movies. It is a project for Matthew Richardson's portfolio.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Matthew Richardson",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
