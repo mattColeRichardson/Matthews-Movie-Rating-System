@@ -1,4 +1,4 @@
-class ImdbAPI
+export class ImdbAPI
 {
     apikey = "68d4832c" //open api key
 
@@ -6,8 +6,10 @@ class ImdbAPI
     {
         return await $.get("http://www.omdbapi.com/?s=" + userSearch + "&apikey=" + this.apikey);
     }
-    async searchByTitle(Title)
+    async searchByTitle()
     {
+        let url = window.location;
+        let Title = /Search&t=(.*)/.exec(url);
         let data = await $.get("http://www.omdbapi.com/?t=" + Title + "&apikey=" + this.apikey);
         console.log(data);
         return data;
