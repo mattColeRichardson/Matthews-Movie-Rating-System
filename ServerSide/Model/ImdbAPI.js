@@ -6,7 +6,7 @@ class movieAPI extends EventEmitter
     constructor() {
         super();
     }
-    apikey =  Env.PATH;
+    apikey =  process.env.IMDBKEY;
     async getMovie (userSearch)
         {
             return got("http://www.omdbapi.com/?s=" + userSearch + "&apikey=" + this.apikey);
