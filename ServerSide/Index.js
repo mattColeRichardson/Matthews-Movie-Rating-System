@@ -5,8 +5,8 @@ const app = express();
 
 app.listen(process.env.PORT || 3000, () => console.log('listening at 3000'));
 
-app.use(express.static('Public/View'));
-app.use(express.static('Public/Controller'));
+app.use(express.static('/Public/View'));
+app.use(express.static('/Public/Controller'));
 
 app.get('/Search&t=[a-z]*', (req,res) =>
 {
