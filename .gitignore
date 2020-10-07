@@ -1,7 +1,6 @@
 # Default ignored files
 /.idea/shelf/
 /.idea/workspace.xml
-/ServerSide/Model/ImdbAPI.js
 /node_modules/
 # Datasource local storage ignored files
 /../../../../../../:\Users\Mattc\IdeaProjects\movieratingsystem\.idea/dataSources/
