@@ -1,18 +1,21 @@
-let $ = require('jquery');
-let methods = {
-    apikey: "68d4832c"
-};
+const EventEmitter = require('events');
+const got = require('got');
 
-methods.getMovie = async function (userSearch)
+class movieAPI extends EventEmitter
 {
-    return await $.get("http://www.omdbapi.com/?s=" + userSearch + "&apikey=" + this.apikey);
+    constructor() {
+        super();
+    }
+    apikey =  "68d4832c";
+    async getMovie (userSearch)
+        {
+            return got("http://www.omdbapi.com/?s=" + userSearch + "&apikey=" + this.apikey);
+        }
+    async searchByTitle(Title)
+        {
+            return got("http://www.omdbapi.com/?t=" + Title + "&apikey=" + this.apikey);
+        }
 }
-methods.searchByTitle = async function (Title)
-{
-    let data = await $.get("http://www.omdbapi.com/?t=" + Title + "&apikey=" + this.apikey);
-    console.log(data);
-    return data;
-}
-exports.data = methods;
+module.exports = movieAPI;
 
 
