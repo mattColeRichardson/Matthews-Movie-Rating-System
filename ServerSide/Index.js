@@ -10,6 +10,10 @@ app.listen(process.env.PORT || 3000, () => console.log('listening at 3000'));
 app.use(express.static('./ServerSide/Public/View/'));
 app.use(express.static('./ServerSide/Public/Controller/'));
 
+app.get('/', (req, res)=>{
+    res.body("Hi there this is working on the root.")
+})
+
 app.get('/Search&t=[a-z]*', (req,res) =>
 {
     let url = req.url;
