@@ -11,7 +11,7 @@ app.use(express.static('./ServerSide/Public/View/'));
 app.use(express.static('./ServerSide/Public/Controller/'));
 
 app.get('/', (req, res)=>{
-    res.body("Hi there this is working on the root.")
+    res.send("Hi there this is working on the root.");
 })
 
 app.get('/Search&t=[a-z]*', (req,res) =>
