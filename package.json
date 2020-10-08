@@ -4,7 +4,8 @@
   "description": "This is a project to keep track of movies. It is a project for Matthew Richardson's portfolio.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./ServerSide/Index.js"
   },
   "keywords": [],
   "author": "Matthew Richardson",
@@ -12,6 +13,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "got": "^11.7.0",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "@fortawesome/fontawesome-free": "5.13.1",
+    "bootstrap": "4.5.0",
+    "simple-line-icons": "^2.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
