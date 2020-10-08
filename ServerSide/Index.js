@@ -3,15 +3,12 @@ const ImdbApi = require('./Model/ImdbAPI');
 const imdb = new ImdbApi();
 const app = express();
 
+app.set('view engine', 'pug');
 app.listen(process.env.PORT || 3000, () => console.log('listening at 3000'));
 
 //app.use(express.static('./View/*'));
 app.use(express.static('./ServerSide/Public/View/'));
 app.use(express.static('./ServerSide/Public/Controller/'));
-
-app.get('/', function (req, res) {
-    res.render('./ServerSide/Public/View/index', {});
-});
 
 app.get('/Search&t=[a-z]*', (req,res) =>
 {
