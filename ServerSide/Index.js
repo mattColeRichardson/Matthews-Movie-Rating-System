@@ -9,6 +9,10 @@ app.listen(process.env.PORT || 3000, () => console.log('listening at 3000'));
 app.use(express.static('./ServerSide/Public/View/'));
 app.use(express.static('./ServerSide/Public/Controller/'));
 
+app.get('/', function (req, res) {
+    res.render('./ServerSide/Public/View/index', {});
+});
+
 app.get('/Search&t=[a-z]*', (req,res) =>
 {
     let url = req.url;
