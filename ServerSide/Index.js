@@ -7,12 +7,8 @@ app.set('view engine', 'pug');
 app.listen(process.env.PORT || 3000, () => console.log('listening at 3000'));
 
 //app.use(express.static('./View/*'));
-app.use(express.static('./ServerSide/Public/View/'));
-app.use(express.static('./ServerSide/Public/Controller/'));
-
-app.get('/', (req, res)=>{
-    res.body("Hi there this is working on the root.")
-})
+app.use(express.static(__dirname + '/Public/View/'));
+app.use(express.static(__dirname + '/Public/Controller/'));
 
 app.get('/Search&t=[a-z]*', (req,res) =>
 {
