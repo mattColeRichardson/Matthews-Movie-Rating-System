@@ -12,7 +12,7 @@
 <section class="row">
     <% for(var i = 0; i < _movieResults.Search.length; i++) { %>
     <div class="card text-center pt-2" style="width: 33%">
-        <form action="/Search/SelectedMovie&t=<%=_movieResults.Search[i].Title%>" method="POST">
+        <form action="/Search/SelectedMovie/<%=_movieResults.Search[i].Title%>" method="POST">
             <h1 class="card-title"><%=_movieResults.Search[i].Title%> </h1>
             <div class="card-body">
                 <img src="<%=_movieResults.Search[i].Poster%>">

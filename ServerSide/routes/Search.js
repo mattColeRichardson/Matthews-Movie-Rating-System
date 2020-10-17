@@ -25,13 +25,13 @@ router.post("/", (req, res) =>
     }
 })
 
-router.post('/SelectedMovie&t=[a-z]*', (req,res) =>
+router.post('/SelectedMovie/:Title', (req,res) =>
 {
     let url = req.url;
-    let Title = /(?<=&t=)(.*)/i.exec(url);
+    let Title = req.params.Title;
     if (Title != null)
     {
-        Imdb.searchByTitle(Title[1])
+        Imdb.searchByTitle(Title)
             .then(response =>
             {
                 const _selResults = JSON.parse(response.body);
@@ -45,3 +45,5 @@ router.post('/SelectedMovie&t=[a-z]*', (req,res) =>
         res.render('404');
     }
 });
+
+router.post('/RatingMovie/:Title/:UserId')

@@ -9,12 +9,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../../fontawesome-free/css/all.css" rel="stylesheet">
     <link href="views/Home/index.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <section>
     <div class="container">
         <div class="card">
-            <div class="card-title"><%=_selResults.title%></div>
+            <div class="card text-center pt-2" style="width: 33%">
+                <form action="/Search/RatingMovie/<%=_selResults.Title%>/1" method="POST">
+                    <h1 class="card-title"><%=_selResults.Title%> </h1>
+                    <div class="card-body">
+                        <img src="<%=_selResults.Poster%>">
+                        <p class="card-text">Year of release : <%=_selResults.Year%> & Type : <%=_selResults.Type%></p>
+                        <h3>Describe your thoughts</h3>
+                        <textarea class="form-control"></textarea>
+                        <h3>Rate and Submit</h3>
+                        <i class="far fa-star star"></i>
+                        <i class="far fa-star star"></i>
+                        <i class="far fa-star star"></i>
+                        <i class="far fa-star star"></i>
+                        <i class="far fa-star star"></i>
+                        <script>
+                            $(".star").hover(function(){
+                                $(this).removeClass("far").addClass("fas");
+                            }, function(){
+                                $(this).removeClass("fas").addClass("far");
+                            });
+                        </script>
+                        <button type="submit" class="btn-primary">Rate me!!</button>
+
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
