@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Movie Organizer so you don't forget your old fav's">
+  <meta name="author" content="Matthew Richardson">
+  <title>Move Search</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="../../fontawesome-free/css/all.css" rel="stylesheet">
+  <link href="views/Home/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Matthew Richardson's Movie Organizer</a>
+      <a class="btn btn-primary" href="../Login/Login.ejs">Sign In</a>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form action="/Search" method="POST">
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input required id="SearchInput" name="SearchInput" type="text" class="form-control form-control-lg" placeholder="Movie Title Here...">
+              </div>
+              <div class="col-12 col-md-3">
+                <button id="SearchBtn" name="SearchBtn" type="submit"  class="btn btn-block btn-lg btn-primary">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+  </header>
+
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row pt-3">
+        <div class="col-4">
+          <h3>Search</h3>
+        </div>
+        <div class="col-4">
+          <h2>Rate</h2>
+
+        </div>
+        <div class="col-4">
+          <h2>Remember</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <svg width="10vw" height="10vw" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+          </svg>
+        </div>
+        <div class="col-4">
+          <svg width="10vw" height="10vw" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+          </svg>
+        </div>
+        <div class="col-4">
+          <svg width="10vw" height="10vw" viewBox="0 0 16 16" class="bi bi-cloud-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-4">
+          <p>Lookup a movie that you have watched recently</p>
+        </div>
+        <div class="col-4">
+          <p>Rate your movies so you know how you felt about it</p>
+        </div>
+        <div class="col-4">
+          <p>Forgot where you were in the series?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">Created by Matthew Richardson 2020</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="https://www.linkedin.com/in/matthew-richardson-255043186/">
+                <i class="fab fa-linkedin fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="http://twitter.com/mattrcodes">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/mattColeRichardson">
+                <i class="fab fa-github fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="../../Controller/Home.js"></script>
+<script src="../../fontawesome-free/js/all.js"></script>
+</html>

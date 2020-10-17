@@ -1,7 +1,0 @@
-class DataParser
-{
-    GetData(data)
-    {
-
-    }
-}

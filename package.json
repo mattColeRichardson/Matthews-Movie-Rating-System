@@ -5,17 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon ./ServerSide/Index.js",
     "start": "node ./ServerSide/Index.js"
   },
   "keywords": [],
   "author": "Matthew Richardson",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "5.13.1",
+    "bootstrap": "4.5.0",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "got": "^11.7.0",
     "jquery": "^3.5.1",
-    "@fortawesome/fontawesome-free": "5.13.1",
-    "bootstrap": "4.5.0",
+    "material-design-icons": "^3.0.1",
+    "mongoose": "^5.10.9",
     "simple-line-icons": "^2.4.1"
   },
   "devDependencies": {

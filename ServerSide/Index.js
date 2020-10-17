@@ -1,25 +1,42 @@
 const path = require('path');
 const express = require('express');
+//database
+
+//const mongoose = require('mongoose');
+//mongoose.connect('mongodb://localhost/Ratings', {useNewUrlParser : true, useUnifiedTopology: true})
+
+//routes
+const loginRouter = require('./routes/Login');
+const searchRouter = require('./routes/Search');
+const homeRouter = require('./routes/Home');
+//models
 const ImdbApi = require('./Model/ImdbAPI');
 const imdb = new ImdbApi();
 const app = express();
 
-app.set('view engine', 'pug');
+process.env.IMDBKEY = '68d4832c';
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './Public/views'))
+
 app.listen(process.env.PORT || 3000, () => console.log('listening at 3000'));
 
-//app.use(express.static('./View/*'));
-app.use(express.static(path.join(__dirname, '../Public/View')));
-app.use(express.static(path.join(__dirname, '../Public/Controller')));
-//app.use(express.static(__dirname + '/Public/View/'));
+app.use(express.urlencoded({extended : false}));
+app.use(homeRouter);
+app.use("/Login", loginRouter);
+app.use("/Search", searchRouter);
+
+app.use(express.static('./ServerSide/Public/'));
+
+
+
+
+
+app.get('*', function(req, res){
+    res.render("404");
+});
+//app.use(express.static(path.join(__dirname, '../Public/Controller')));
+//app.use(express.static(__dirname + '/Public/views/'));
 //app.use(express.static(__dirname + '/Public/Controller/'));
 
-app.get('/Search&t=[a-z]*', (req,res) =>
-{
-    let url = req.url;
-    let Title = /(?<=Search&t=)(.*)/i.exec(url);
-    let movie = imdb.searchByTitle(Title[1]);
-    movie.then((value => {
-        //send the data back to the client somehow. possibly change their header first.
-        console.log(value.body);
-    }))
-})
+

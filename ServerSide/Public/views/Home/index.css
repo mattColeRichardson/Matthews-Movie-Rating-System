@@ -1,0 +1,8 @@
+.masthead
+{
+    background-image: url("../Img/bg-masthead.jpg");
+    background-size: 100%;
+    background-position: center;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}

@@ -6,15 +6,14 @@ class movieAPI extends EventEmitter
     constructor() {
         super();
     }
-    apikey =  process.env.IMDBKEY;
-    async getMovie (userSearch)
+    getMovie (userSearch)
         {
-            return got("http://www.omdbapi.com/?s=" + userSearch + "&apikey=" + this.apikey);
+            return got("http://www.omdbapi.com/?s=" + userSearch + "&apikey=" + process.env.IMDBKEY);
         }
-    async searchByTitle(Title)
-        {
-            return got("http://www.omdbapi.com/?t=" + Title + "&apikey=" + this.apikey);
-        }
+    searchByTitle(Title)
+    {
+        return got("http://www.omdbapi.com/?t=" + Title + "&apikey=" + process.env.IMDBKEY);
+    }
 }
 module.exports = movieAPI;
 
