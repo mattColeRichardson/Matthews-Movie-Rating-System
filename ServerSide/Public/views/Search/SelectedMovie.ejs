@@ -14,7 +14,7 @@
 <body>
 <section>
     <div class="container">
-        <div class="card">
+        <div class="card pt-4 pb-4 align-items-center">
             <div class="card text-center pt-2" style="width: 33%">
                 <form action="/Search/RatingMovie/<%=_selResults.Title%>/1" method="POST">
                     <h1 class="card-title"><%=_selResults.Title%> </h1>
@@ -24,16 +24,61 @@
                         <h3>Describe your thoughts</h3>
                         <textarea class="form-control"></textarea>
                         <h3>Rate and Submit</h3>
-                        <i class="far fa-star star"></i>
-                        <i class="far fa-star star"></i>
-                        <i class="far fa-star star"></i>
-                        <i class="far fa-star star"></i>
-                        <i class="far fa-star star"></i>
+                        <i class="far fa-star star" id="1"></i>
+                        <i class="far fa-star star" id="2"></i>
+                        <i class="far fa-star star" id="3"></i>
+                        <i class="far fa-star star" id="4"></i>
+                        <i class="far fa-star star" id="5"></i>
+                        <div id="amount"></div>
                         <script>
-                            $(".star").hover(function(){
+                            $("#1").hover(function(){
                                 $(this).removeClass("far").addClass("fas");
                             }, function(){
                                 $(this).removeClass("fas").addClass("far");
+                            });
+                            $("#2").hover(function(){
+                                $("#1").removeClass("far").addClass("fas");
+                                $(this).removeClass("far").addClass("fas");
+                            }, function(){
+                                $('#1').removeClass("fas").addClass("far");
+                                $(this).removeClass("fas").addClass("far");
+                            });
+                            $("#3").hover(function(){
+                                $("#1").removeClass("far").addClass("fas");
+                                $("#2").removeClass("far").addClass("fas");
+                                $(this).removeClass("far").addClass("fas");
+                            }, function(){
+                                $('#1').removeClass("fas").addClass("far");
+                                $('#2').removeClass("fas").addClass("far");
+                                $(this).removeClass("fas").addClass("far");
+                            });
+                            $("#4").hover(function(){
+                                $("#1").removeClass("far").addClass("fas");
+                                $("#2").removeClass("far").addClass("fas");
+                                $("#3").removeClass("far").addClass("fas");
+                                $(this).removeClass("far").addClass("fas");
+                            }, function(){
+                                $('#1').removeClass("fas").addClass("far");
+                                $('#2').removeClass("fas").addClass("far");
+                                $("#3").removeClass("fas").addClass("far");
+                                $(this).removeClass("fas").addClass("far");
+                            });
+                            $("#5").hover(function(){
+                                $("#1").removeClass("far").addClass("fas");
+                                $("#2").removeClass("far").addClass("fas");
+                                $("#3").removeClass("far").addClass("fas");
+                                $("#4").removeClass("far").addClass("fas");
+                                $(this).removeClass("far").addClass("fas");
+                            }, function(){
+                                $('#1').removeClass("fas").addClass("far");
+                                $('#2').removeClass("fas").addClass("far");
+                                $("#3").removeClass("fas").addClass("far");
+                                $("#4").removeClass("fas").addClass("far");
+                                $(this).removeClass("fas").addClass("far");
+                            });
+
+                            $(".star").click(function(event){
+                               $("#amount").text("You rated " + event.target.id + " stars");
                             });
                         </script>
                         <button type="submit" class="btn-primary">Rate me!!</button>

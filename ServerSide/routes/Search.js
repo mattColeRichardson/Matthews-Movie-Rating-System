@@ -46,4 +46,11 @@ router.post('/SelectedMovie/:Title', (req,res) =>
     }
 });
 
-router.post('/RatingMovie/:Title/:UserId')
+router.post('/RatingMovie/:Title/:UserId', (req, res) =>
+{
+    let title = req.params.Title;
+    let userID = req.params.UserId;
+    let poster = req.params.Poster;
+
+    console.log(`Title = ${title}, and the user is ${userID}`);
+});

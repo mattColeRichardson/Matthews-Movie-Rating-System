@@ -17,10 +17,6 @@ const reviewSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    date : {
-        type : Date,
-        default : Date.now
-    },
     poster : {
         type : string,
         required : true
