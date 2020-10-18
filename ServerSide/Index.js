@@ -14,7 +14,6 @@ const ImdbApi = require('./Model/ImdbAPI');
 const imdb = new ImdbApi();
 const app = express();
 
-process.env.IMDBKEY = '68d4832c';
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './Public/views'))

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon ./ServerSide/Index.js",
+    "devStart": "nodemon -r esm -r dotenv/config ./ServerSide/Index.js",
     "start": "node ./ServerSide/Index.js"
   },
   "keywords": [],
@@ -14,6 +14,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.13.1",
     "bootstrap": "4.5.0",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "esm": "^3.2.25",
     "express": "^4.17.1",
