@@ -1,18 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../Model/User');
 
-const googleClient = process.env.GOOGLE_CLIENT_ID;
-const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
+const passport = require('passport');
+
 
 router.get("/", (req, res) =>
 {
-    res.render("Home/index.ejs");
+    res.render("Home/index.ejs", {User: req.user});
 })
-router.get("/api/google", (req, res) => {
-    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClient}&redirect_uri=http://localhost:3000&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`
-    res.redirect(url)
-});
-router.get("/api/google/callback", (req, res) => {
 
-});
+router.get("/api/google", passport.authenticate('google', { scope: ['profile']}));
+
+router.get("/api/google/callback", passport.authenticate('google', {failureRedirect: '/Login'}),
+        function (req, res)
+        {
+            res.redirect('/');
+        }
+);
+router.get("/logout",(req, res) =>
+{
+    req.logout()
+    res.redirect('/Login')
+})
+
 module.exports = router;

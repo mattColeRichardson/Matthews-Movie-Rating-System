@@ -17,7 +17,25 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" href="#">Matthew Richardson's Movie Organizer</a>
-      <a class="btn btn-primary" href="../Login/Login.ejs">Sign In</a>
+      <%if (User != undefined)
+      {
+      %>
+        <a href="/MyMovies"><i class="fas fa-video fa-fw"></i> My Movies</a>
+        <a class="btn btn-danger" href="/Logout">
+          <i class="fas fa-sign-out-alt"></i>  Logout
+        </a>
+      <%
+      }
+      else
+      {
+      %>
+        <a class="btn btn-danger" href="/api/google/">
+          <i class="fab fa-google fa-fw"></i>  Sign in with Google
+        </a>
+      <%
+      }
+      %>
+
     </div>
   </nav>
 
@@ -78,7 +96,7 @@
           <p>Rate your movies so you know how you felt about it</p>
         </div>
         <div class="col-4">
-          <p>Forgot where you were in the series?</p>
+          <p>Forgot where you were in the series? Just look it back up!</p>
         </div>
       </div>
     </div>
@@ -92,11 +110,11 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
           <ul class="list-inline mb-2">
             <li class="list-inline-item">
-              <a href="#">About</a>
+              <a href="mattr.codes">About</a>
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
-              <a href="#">Contact</a>
+              <a href="Http://www.matt@mattr.codes">Contact</a>
             </li>
           </ul>
           <p class="text-muted small mb-4 mb-lg-0">Created by Matthew Richardson 2020</p>
