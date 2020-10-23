@@ -16,7 +16,7 @@
     <div class="container">
         <div class="card pt-4 pb-4 align-items-center">
             <div class="card text-center pt-2" style="width: 33%">
-                <form action="/Search/RatingMovie/<%=_selResults.Title%>/1" method="POST">
+                <form action="/Search/RatingMovie/<%=_selResults.Title%>" method="POST">
                     <h1 class="card-title"><%=_selResults.Title%> </h1>
                     <div class="card-body">
                         <img src="<%=_selResults.Poster%>">
@@ -29,7 +29,7 @@
                         <i class="far fa-star star" id="3"></i>
                         <i class="far fa-star star" id="4"></i>
                         <i class="far fa-star star" id="5"></i>
-                        <div id="amount"></div>
+                        <div id="amount" ></div>
                         <script>
                             $("#1").hover(function(){
                                 $(this).removeClass("far").addClass("fas");
@@ -79,6 +79,11 @@
 
                             $(".star").click(function(event){
                                $("#amount").text("You rated " + event.target.id + " stars");
+                               if($("#amount").hasAttribute("Title"))
+                               {
+
+                               }
+                               $("#amount").setAttribute("Title", event.target.id);
                             });
                         </script>
                         <button type="submit" class="btn-primary">Rate me!!</button>

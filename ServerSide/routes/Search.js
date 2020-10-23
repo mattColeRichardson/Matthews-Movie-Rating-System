@@ -13,7 +13,6 @@ router.post("/", (req, res) =>
         Imdb.getMovie(_searchTitle).then(response =>
         {
             let _movieResults = JSON.parse(response.body);
-            //console.log(_movieResults);
             res.render('Search/SearchResults', {_movieResults});
 
         }).catch(err => console.error(err));
@@ -46,10 +45,10 @@ router.post('/SelectedMovie/:Title', (req,res) =>
     }
 });
 
-router.post('/RatingMovie/:Title/:UserId', (req, res) =>
+router.post('/RatingMovie/:Title', (req, res) =>
 {
     let title = req.params.Title;
-    let userID = req.params.UserId;
+    let userID = req.user;
     let poster = req.params.Poster;
 
     console.log(`Title = ${title}, and the user is ${userID}`);
