@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Movie Organizer so you don't forget your old fav's">
+    <meta name="author" content="Matthew Richardson">
+    <title>Move Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../../fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="views/Home/index.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Matthew Richardson's Movie Organizer</a>
+        <%if (User != undefined)
+        {
+        %>
+            <a href="/MyMovies"><i class="fas fa-video fa-fw"></i> My Movies</a>
+            <a class="btn btn-danger" href="/Logout">
+                <i class="fas fa-sign-out-alt"></i>  Logout
+            </a>
+        <%
+        }
+        else
+        {
+        %>
+            <a class="btn btn-danger" href="/api/google/">
+                <i class="fab fa-google fa-fw"></i>  Sign in with Google
+            </a>
+        <%
+        }
+        %>
+
+    </div>
+</nav>
+
+<div class="container">
+    <%
+    for (var i = 0; i < review.length; i++) {
+    %>
+    <%if(i % 3 == 0)
+    {
+    %>
+    <div class="row">
+    <%
+    }
+    %>
+        <div class="card text-center" style="width: 33%">
+            <div class="card-title"><h3><%=review[i].title%></h3></div>
+            <div class="card-body">
+                <img src="<%=review[i].poster%>">
+                <p><%=review[i].description%></p>
+                <h4><%=review[i].rating%> Stars</h4>
+                <div class="btn btn-success">Edit</div>
+                <div class="btn btn-danger">Delete</div>
+            </div>
+        </div>
+        <%if(i % 3 == 0 && i>0)
+        {
+        %>
+        </div>
+        <%
+        }
+        %>
+    <%
+    }
+    %>
+</div>
+
+<!-- Footer -->
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/matthew-richardson-255043186/">
+                            <i class="fab fa-linkedin fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                        <a href="http://twitter.com/mattrcodes">
+                            <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/mattColeRichardson">
+                            <i class="fab fa-github fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-2 mt-2">
+                    <li class="list-inline-item">
+                        <a href="mattr.codes">About</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="Http://www.matt@mattr.codes">Contact</a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">Created by Matthew Richardson 2020</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+<script src="../../Controller/Home.js"></script>
+<script src="../../fontawesome-free/js/all.js"></script>
+</html>

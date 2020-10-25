@@ -18,7 +18,7 @@ const reviewSchema = new mongoose.Schema({
         required: true
     },
     poster : {
-        type : string,
+        type : String,
         required : true
     }
 })

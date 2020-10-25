@@ -20,16 +20,21 @@
                     <h1 class="card-title"><%=_selResults.Title%> </h1>
                     <div class="card-body">
                         <img src="<%=_selResults.Poster%>">
-                        <p class="card-text">Year of release : <%=_selResults.Year%> & Type : <%=_selResults.Type%></p>
-                        <h3>Describe your thoughts</h3>
-                        <textarea class="form-control"></textarea>
-                        <h3>Rate and Submit</h3>
+                        <input class="d-none" id="picture" name="picture" value="<%=_selResults.Poster%>"></input>
+                        <p class="card-text">Year of release : <%=_selResults.Year%></p>
+                        <input class="d-none" id="year" name="year" value="<%=_selResults.Year%>"></input>
+                        <p class="card-text">Type : <%=_selResults.Type%></p>
+                        <input class="d-none" id="type" name="type" value="<%=_selResults.Type%>"></input>
+                        <h3 >Describe your thoughts</h3>
+                        <textarea name="description" class="form-control"></textarea>
+                        <h3>*Rate and Submit</h3>
                         <i class="far fa-star star" id="1"></i>
                         <i class="far fa-star star" id="2"></i>
                         <i class="far fa-star star" id="3"></i>
                         <i class="far fa-star star" id="4"></i>
                         <i class="far fa-star star" id="5"></i>
                         <div id="amount" ></div>
+                        <input class="d-none" id="sendAmount" name="amount" required></input>
                         <script>
                             $("#1").hover(function(){
                                 $(this).removeClass("far").addClass("fas");
@@ -79,13 +84,10 @@
 
                             $(".star").click(function(event){
                                $("#amount").text("You rated " + event.target.id + " stars");
-                               if($("#amount").hasAttribute("Title"))
-                               {
-
-                               }
-                               $("#amount").setAttribute("Title", event.target.id);
+                               $("#sendAmount").val(event.target.id);
                             });
                         </script>
+                        <p>-selecting a star is required-</p>
                         <button type="submit" class="btn-primary">Rate me!!</button>
 
                     </div>

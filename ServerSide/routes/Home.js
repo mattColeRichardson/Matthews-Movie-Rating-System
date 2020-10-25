@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../Model/User');
+const Reviews = require('../Model/Reviews');
 
 const passport = require('passport');
 
@@ -20,8 +20,21 @@ router.get("/api/google/callback", passport.authenticate('google', {failureRedir
 );
 router.get("/logout",(req, res) =>
 {
-    req.logout()
-    res.redirect('/Login')
+    req.logout();
+    res.redirect('/Login');
+})
+router.get("/MyMovies", async (req, res) => {
+    let reviewLookup = await Reviews.find({id: req.user.googleID});
+    let passThrough = {User: req.user, review: reviewLookup}
+
+    if(reviewLookup)
+    {
+        res.render("Search/MyMovies", passThrough);
+    }
+    else
+    {
+        res.render("Search/NoMovies");
+    }
 })
 
 module.exports = router;

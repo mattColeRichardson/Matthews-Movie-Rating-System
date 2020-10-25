@@ -7,7 +7,7 @@ function startPassport(passport)
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: 'https://movie-lookup-mattr.herokuapp.com/api/google/callback'
+            callbackURL: process.env.GOOGLE_CALLBACK
         }, async (token,tokenSecret, profile, done)=>{
             //console.log(profile);
             const newUser = {
