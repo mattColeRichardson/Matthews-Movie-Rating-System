@@ -78,10 +78,7 @@ router.post('/RatingMovie/:Title', urlParser, async (req, res) =>
         {
             console.error(err);
         }
-        //I need to log in database and send to my movies page
-        //console.log(review);
     }
     else
-        //possibly create a login to submit ratings page.
         res.redirect("/login");
 });

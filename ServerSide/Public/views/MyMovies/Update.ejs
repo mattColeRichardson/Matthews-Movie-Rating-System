@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Movie Organizer so you don't forget your old fav's">
+    <meta name="author" content="Matthew Richardson">
+    <title>Update</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../../fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="views/Home/index.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<form action="/MyMovies/Update/<%=movie[0].title%>" method="post">
+    <div class="card text-center">
+        <div class="cardbody">
+            <h1><%=movie[0].title%></h1>
+            <img src="<%=movie[0].poster%>" alt="<%=movie[0].title%> movie poster">
+            <h3>Description</h3>
+            <textarea type="text" name="Description"></textarea>
+            <h3>*Rate and Submit</h3>
+            <i class="far fa-star star" id="1"></i>
+            <i class="far fa-star star" id="2"></i>
+            <i class="far fa-star star" id="3"></i>
+            <i class="far fa-star star" id="4"></i>
+            <i class="far fa-star star" id="5"></i>
+            <div id="amount" ></div>
+            <input class="d-none" id="sendAmount" name="amount" required></input>
+            <button class="btn btn-success" type="submit">Submit</button>
+            <script>
+                $("#1").hover(function(){
+                    $(this).removeClass("far").addClass("fas");
+                }, function(){
+                    $(this).removeClass("fas").addClass("far");
+                });
+                $("#2").hover(function(){
+                    $("#1").removeClass("far").addClass("fas");
+                    $(this).removeClass("far").addClass("fas");
+                }, function(){
+                    $('#1').removeClass("fas").addClass("far");
+                    $(this).removeClass("fas").addClass("far");
+                });
+                $("#3").hover(function(){
+                    $("#1").removeClass("far").addClass("fas");
+                    $("#2").removeClass("far").addClass("fas");
+                    $(this).removeClass("far").addClass("fas");
+                }, function(){
+                    $('#1').removeClass("fas").addClass("far");
+                    $('#2').removeClass("fas").addClass("far");
+                    $(this).removeClass("fas").addClass("far");
+                });
+                $("#4").hover(function(){
+                    $("#1").removeClass("far").addClass("fas");
+                    $("#2").removeClass("far").addClass("fas");
+                    $("#3").removeClass("far").addClass("fas");
+                    $(this).removeClass("far").addClass("fas");
+                }, function(){
+                    $('#1').removeClass("fas").addClass("far");
+                    $('#2').removeClass("fas").addClass("far");
+                    $("#3").removeClass("fas").addClass("far");
+                    $(this).removeClass("fas").addClass("far");
+                });
+                $("#5").hover(function(){
+                    $("#1").removeClass("far").addClass("fas");
+                    $("#2").removeClass("far").addClass("fas");
+                    $("#3").removeClass("far").addClass("fas");
+                    $("#4").removeClass("far").addClass("fas");
+                    $(this).removeClass("far").addClass("fas");
+                }, function(){
+                    $('#1').removeClass("fas").addClass("far");
+                    $('#2').removeClass("fas").addClass("far");
+                    $("#3").removeClass("fas").addClass("far");
+                    $("#4").removeClass("fas").addClass("far");
+                    $(this).removeClass("fas").addClass("far");
+                });
+
+                $(".star").click(function(event){
+                    $("#amount").text("You rated " + event.target.id + " stars");
+                    $("#sendAmount").val(event.target.id);
+                });
+            </script>
+        </div>
+    </div>
+
+</form>
+
+</body>
