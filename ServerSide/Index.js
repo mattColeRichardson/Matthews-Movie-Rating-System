@@ -14,7 +14,8 @@ connectDB();
 const loginRouter = require('./routes/Login');
 const searchRouter = require('./routes/Search');
 const MyMoviesRouter = require('./routes/MyMovies');
-const homeRouter = require('./routes/Home');
+const HomeRouter = require('./routes/Home');
+const BrowseRouter = require('./routes/Browse');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './Public/views'));
@@ -33,10 +34,11 @@ app.use(passport.session());
 app.use(express.urlencoded({extended : false}));
 
 //Routes
-app.use(homeRouter);
+app.use(HomeRouter);
 app.use("/Login", loginRouter);
 app.use("/Search", searchRouter);
 app.use("/MyMovies", MyMoviesRouter);
+app.use("/Browse", BrowseRouter);
 
 
 app.use(express.static('./ServerSide/Public/'));
