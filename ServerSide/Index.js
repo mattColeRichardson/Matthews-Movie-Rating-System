@@ -13,6 +13,7 @@ connectDB();
 //Route variables
 const loginRouter = require('./routes/Login');
 const searchRouter = require('./routes/Search');
+const MyMoviesRouter = require('./routes/MyMovies');
 const homeRouter = require('./routes/Home');
 
 app.set('view engine', 'ejs');
@@ -35,6 +36,7 @@ app.use(express.urlencoded({extended : false}));
 app.use(homeRouter);
 app.use("/Login", loginRouter);
 app.use("/Search", searchRouter);
+app.use("/MyMovies", MyMoviesRouter);
 
 
 app.use(express.static('./ServerSide/Public/'));

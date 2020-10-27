@@ -38,7 +38,6 @@ router.post('/SelectedMovie/:Title', (req,res) =>
             .then(response =>
             {
                 const _selResults = JSON.parse(response.body);
-                console.log(_selResults.Title);
                 res.render('Search/SelectedMovie', {_selResults});
             })
             .catch(err => console.error(err));
@@ -64,7 +63,6 @@ router.post('/RatingMovie/:Title', urlParser, async (req, res) =>
         };
         try{
             let reviewLookup = await Rating.find({id: req.user.googleID, title: req.params.Title});
-            console.log(reviewLookup);
             if(reviewLookup[0] != undefined || reviewLookup[0] != null)
             {
                 res.render('Search/FailedDatabase')
