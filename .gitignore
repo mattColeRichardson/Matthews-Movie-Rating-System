@@ -2,6 +2,7 @@
 /node_modules/
 /.idea/shelf/
 /.idea/workspace.xml
+/.idea/*
 # Datasource local storage ignored files
 /../../../../../../:\Users\Mattc\IdeaProjects\movieratingsystem\.idea/dataSources/
 /dataSources.local.xml
