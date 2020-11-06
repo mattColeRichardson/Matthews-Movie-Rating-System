@@ -14,6 +14,14 @@ class movieAPI extends EventEmitter
     {
         return got("http://www.omdbapi.com/?t=" + Title + "&apikey=" + process.env.IMDBKEY);
     }
+    getMovieImgByTitle(Title)
+    {
+        return got("http://www.img.omdbapi.com/?t=" + Title + "&apikey=" + process.env.IMDBKEY);
+    }
+    getNTYPicksBy(Year)
+    {
+        return got(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?critics-pick=y&publication-date=${Year}&api-key=${process.env.NYT_KEY}`);
+    }
 }
 module.exports = movieAPI;
 
