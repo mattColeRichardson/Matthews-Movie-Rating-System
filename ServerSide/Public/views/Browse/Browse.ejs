@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Movie Organizer so you don't forget your old fav's">
+    <meta name="author" content="Matthew Richardson">
+    <title>Browse Movies to watch!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../../fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="views/Home/index.css" rel="stylesheet">
+</head>
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Matthew Richardson's Movie Organizer</a>
+        <%if (User != undefined)
+        {
+        %>
+            <a href="/Browse"><i class="fas fa-video fa-fw"></i> What to watch?</a>
+            <a href="/MyMovies"><i class="fas fa-video fa-fw"></i> My Movies</a>
+            <a class="btn btn-danger" href="/Logout">
+                <i class="fas fa-sign-out-alt"></i>  Logout
+            </a>
+        <%
+        }
+        else
+        {
+        %>
+            <a class="btn btn-danger" href="/api/google/">
+                <i class="fab fa-google fa-fw"></i>  Sign in with Google
+            </a>
+        <%
+        }
+        %>
+
+    </div>
+</nav>
+<body>
+<div class="container">
+    <div class="row pt-4 pb-4">
+        <h1>Checkout some new movies with reviews from New York Times</h1>
+    </div>
+    <div class="row">
+        <% for (var i = 0; i < NYT.num_results; i++) {
+        %>
+        <div class="card col-lg-3 col-sm-6">
+            <div class="card-body">
+                <h5 class="card-title"><%=NYT.results[i].display_title%></h5>
+                <%
+                if(Movie[`Movie ${i}`].Poster === 'N/A')
+                {
+                %>
+                    <a href="<%=NYT.results[i].link.url%>">
+                    <img src="./views/Img/No-Movie-Poster.jpg" alt="Movie Title" class="img-thumbnail">
+                    </a>
+                <%
+                }
+                else
+                {
+                %>
+                    <a href="<%=NYT.results[i].link.url%>">
+                    <img src="<%=Movie[`Movie ${i}`].Poster%>" alt="Movie Title" class="img-thumbnail">
+                    </a>
+                <%
+                }
+                %>
+            </div>
+        </div>
+        <%
+        }%>
+    </div>
+</div>
+
+</body>
