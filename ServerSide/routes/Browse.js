@@ -15,7 +15,6 @@ router.get("/", async (req, res) =>
         MovieInfo[`Movie ${i}`] = await Imdb.searchByTitle(NYTPicks.results[i].display_title);
         MovieInfo[`Movie ${i}`] = await JSON.parse(MovieInfo[`Movie ${i}`].body );
     }
-    console.log(MovieInfo[`Movie 18`]);
     res.render("Browse/Browse", {User: req.user, NYT: NYTPicks, Movie: MovieInfo});
 })
 

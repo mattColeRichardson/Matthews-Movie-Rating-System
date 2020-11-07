@@ -40,10 +40,7 @@ app.use("/Search", searchRouter);
 app.use("/MyMovies", MyMoviesRouter);
 app.use("/Browse", BrowseRouter);
 
-app.get('/img/:title', function(req, res){
-    let Title = req.params.title;
-    res.sendFile(`/Public/views/Img/${Title}`, {root: __dirname});
-});
+app.use(express.static("./ServerSide/Public"));
 
 app.get('*', function(req, res){
     res.render("404");

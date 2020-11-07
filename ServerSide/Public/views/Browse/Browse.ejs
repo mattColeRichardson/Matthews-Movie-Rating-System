@@ -17,7 +17,7 @@
         <%if (User != undefined)
         {
         %>
-            <a href="/Browse"><i class="fas fa-video fa-fw"></i> Browse</a>
+            <a href="/Browse"><i class="fas fa-video fa-fw"></i> What to watch?</a>
             <a href="/MyMovies"><i class="fas fa-video fa-fw"></i> My Movies</a>
             <a class="btn btn-danger" href="/Logout">
                 <i class="fas fa-sign-out-alt"></i>  Logout
@@ -38,6 +38,9 @@
 </nav>
 <body>
 <div class="container">
+    <div class="row pt-4 pb-4">
+        <h1>Checkout some new movies with reviews from New York Times</h1>
+    </div>
     <div class="row">
         <% for (var i = 0; i < NYT.num_results; i++) {
         %>
@@ -48,13 +51,17 @@
                 if(Movie[`Movie ${i}`].Poster === 'N/A')
                 {
                 %>
-                    <img src="/img/No-Movie-Poster.jpg" alt="Movie Title" class="img-thumbnail">
+                    <a href="<%=NYT.results[i].link.url%>">
+                    <img src="./views/Img/No-Movie-Poster.jpg" alt="Movie Title" class="img-thumbnail">
+                    </a>
                 <%
                 }
                 else
                 {
                 %>
+                    <a href="<%=NYT.results[i].link.url%>">
                     <img src="<%=Movie[`Movie ${i}`].Poster%>" alt="Movie Title" class="img-thumbnail">
+                    </a>
                 <%
                 }
                 %>
