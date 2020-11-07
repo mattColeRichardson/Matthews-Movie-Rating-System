@@ -16,15 +16,17 @@
 </nav>
 <section class="row">
     <% for(var i = 0; i < _movieResults.Search.length; i++) { %>
-    <div class="card text-center pt-2" style="width: 33%">
-        <form action="/Search/SelectedMovie/<%=_movieResults.Search[i].Title%>" method="POST">
-            <h1 class="card-title"><%=_movieResults.Search[i].Title%> </h1>
-            <div class="card-body">
-                <img src="<%=_movieResults.Search[i].Poster%>">
-                <p class="card-text">Year of release : <%=_movieResults.Search[i].Year%> & Type : <%=_movieResults.Search[i].Type%></p>
-                <button type="submit" class="btn-primary">Rate me!!</button>
-            </div>
-        </form>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card text-center pt-2" style="height: 100%">
+            <form action="/Search/SelectedMovie/<%=_movieResults.Search[i].Title%>" method="POST">
+                <h1 class="card-title"><%=_movieResults.Search[i].Title%> </h1>
+                <div class="card-body">
+                    <img class="img-thumbnail" src="<%=_movieResults.Search[i].Poster%>">
+                    <p class="card-text">Year of release : <%=_movieResults.Search[i].Year%> & Type : <%=_movieResults.Search[i].Type%></p>
+                    <button type="submit" class="btn-primary">Rate me!!</button>
+                </div>
+            </form>
+        </div>
     </div>
     <% }%>
 </section>
